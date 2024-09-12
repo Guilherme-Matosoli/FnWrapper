@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "github.com/spf13/cobra"
+)
 
 func main(){
-  fmt.Println("HELLO, WORLD!")
+  rootCmd := &cobra.Command{
+    Run: func(cmd *cobra.Command, args []string){
+      fmt.Println(len(args))
+    },
+  }
+
+  rootCmd.Execute()
+
+  fmt.Println("HELLO, WOLRD!")
 }
